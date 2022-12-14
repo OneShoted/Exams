@@ -1,0 +1,71 @@
+#include <iostream>
+#include <math.h>
+#include <Windows.h>
+#include <cstdlib>
+
+using namespace std;
+
+void exercise();
+void exercise2();
+
+int main()
+{
+    setlocale(0, ".1251");
+    //Вибір завдання
+    std::cout << "Яку вправу ви би хотiли побачити?\n";
+    std::cout << "1 = Перша вправа, 2 = Друга вправа\n";
+
+    int n = 1;
+    if (n != 0) {
+        std::cin >> n;
+        switch (n) {
+        case 1:
+            exercise();
+            break;
+        case 2:
+            exercise2();
+            break;
+        default:
+            std::cout << "Нажаль, такої вправи немає" << std::endl;
+            break;
+        }
+    }
+}
+//Перше завдання
+void exercise() {
+    const int n = 10;
+    double max = 0;
+    double mass[n];
+    cout << "Введiть масив" << endl;//Введення чисел масиву
+    for (int i = 0; i < n; i++)
+    {
+        std::cin >> mass[i];
+    }
+    for (int i = 0; i < n; i++) {
+        if (mass[i] > max)
+            max = mass[i];
+    }
+    cout << "max: " << max;
+}
+//Друге завдання
+void exercise2() {
+    const int n = 10;
+    double mass[n] = { 0 };
+    double sum = 0;
+    cout << "Введiть масив" << endl;//Введення чисел масиву
+    for (int i = 0; i < n; i++)
+    {
+        std::cin >> mass[i];
+    }
+    int k = n;
+    while (mass[k] < 0)
+    {
+        k--;
+    }
+    for (int i = 0; i < k; i++)
+    {
+        sum += mass[i];
+    }
+
+    cout << endl << sum << endl;
+}
